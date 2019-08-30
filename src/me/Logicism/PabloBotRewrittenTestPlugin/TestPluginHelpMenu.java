@@ -12,7 +12,9 @@ public class TestPluginHelpMenu extends PluginHelpMenu {
     @Override
     public void executeHelpMenu(Member member, MessageChannel channel) {
         EmbedBuilder eb = new EmbedBuilder();
-        eb.setTitle("TestPlugin Help Menu");
+        eb.setAuthor("TestPlugin Help Menu");
         eb.addField("Commands to Test PabloBot's Functionality", GuildUtils.getGuildPrefix(((TextChannel) channel).getGuild().getId()) + "testerror - Test the ErrorManager\n" + GuildUtils.getGuildPrefix(((TextChannel) channel).getGuild().getId()) + "testconfig - Test the Configuration", true);
+        eb.setFooter("Custom Help Menu Test");
+        channel.sendMessage(eb.build()).queue();
     }
 }
