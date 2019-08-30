@@ -1,0 +1,6 @@
+name: TestPlugin
+description: A plugin to test all functionality of PabloBot Rewritten
+version: 1.0
+main: me.Logicism.PabloBotRewrittenTestPlugin.TestPlugin
+author: Logicism
+website: TestWebsite
