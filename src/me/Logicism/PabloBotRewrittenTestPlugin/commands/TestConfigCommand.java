@@ -17,7 +17,7 @@ public class TestConfigCommand implements ConsoleCommandExecutor, DiscordCommand
 
     @Override
     public boolean onCommand(Member member, User user, MessageChannel channel, String s, String[] args) {
-        channel.sendMessage(TestPlugin.config.getString("test1"));
+        channel.sendMessage(TestPlugin.config.getString("test1")).queue();
         return false;
     }
 }
