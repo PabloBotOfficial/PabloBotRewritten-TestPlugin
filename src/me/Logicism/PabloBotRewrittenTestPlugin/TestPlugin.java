@@ -25,6 +25,8 @@ public class TestPlugin extends Plugin {
 
         saveConfig();
 
+        setHelpMenu(new TestPluginHelpMenu());
+
         PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testerror", "Test the ErrorManager", plugin), new TestErrorCommand());
         PabloBotRewritten.getInstance().getCommandManager().registerConsoleCommand(new ConsoleCommand("testerror", "Test the ErrorManager", plugin), new TestErrorCommand());
 
