@@ -12,6 +12,9 @@ public class TestConfigCommand implements ConsoleCommandExecutor, DiscordCommand
     @Override
     public boolean onCommand(Terminal terminal, String s, String[] args) {
         TestPlugin.plugin.getLogger().info(TestPlugin.config.getString("test1"));
+        for (String s1 : TestPlugin.config.getKeys()) {
+            TestPlugin.plugin.getLogger().info(s1);
+        }
         return false;
     }
 

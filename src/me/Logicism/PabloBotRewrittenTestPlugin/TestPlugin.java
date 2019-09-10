@@ -21,6 +21,8 @@ public class TestPlugin extends Plugin {
         getLogger().warn("This is not an actual warning! This is only a test!");
 
         config.addDefault("test1", "value1");
+        config.addDefault("test2.testA", "value2");
+        config.addDefault("test2.testB", "value3");
         config.options().copyDefaults(true);
 
         saveConfig();
