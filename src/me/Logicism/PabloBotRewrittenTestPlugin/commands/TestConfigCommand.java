@@ -6,7 +6,11 @@ import me.Logicism.PabloBotRewrittenTestPlugin.TestPlugin;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.MessageChannel;
 import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.interactions.InteractionHook;
+import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 import org.jline.terminal.Terminal;
+
+import java.util.List;
 
 public class TestConfigCommand implements ConsoleCommandExecutor, DiscordCommandExecutor {
     @Override
@@ -21,6 +25,12 @@ public class TestConfigCommand implements ConsoleCommandExecutor, DiscordCommand
     @Override
     public boolean onCommand(Member member, User user, MessageChannel channel, String s, String[] args) {
         channel.sendMessage(TestPlugin.config.getString("test1")).queue();
+        return false;
+    }
+
+    @Override
+    public boolean onCommand(Member member, User user, InteractionHook hook, String s, List<OptionMapping> list) {
+        hook.sendMessage(TestPlugin.config.getString("test1")).queue();
         return false;
     }
 }
