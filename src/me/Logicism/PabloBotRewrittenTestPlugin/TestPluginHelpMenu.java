@@ -27,7 +27,7 @@ public class TestPluginHelpMenu extends PluginHelpMenu {
         eb.setAuthor("TestPlugin Help Menu");
         eb.addField("Commands to Test PabloBot's Functionality", "/testerror - Test the ErrorManager\n" + "/testconfig - Test the Configuration", true);
         eb.setFooter("Custom Help Menu Test");
-        hook.sendMessage(new MessageBuilder().setEmbed(eb.build()).build()).queue();
+        hook.sendMessageEmbeds(eb.build()).queue();
     }
 
     @Override
