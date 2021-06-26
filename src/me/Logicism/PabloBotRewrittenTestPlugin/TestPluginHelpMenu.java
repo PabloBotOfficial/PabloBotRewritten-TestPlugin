@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.MessageBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.MessageChannel;
 import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
 import net.dv8tion.jda.api.interactions.InteractionHook;
 
 public class TestPluginHelpMenu extends PluginHelpMenu {
@@ -29,4 +30,12 @@ public class TestPluginHelpMenu extends PluginHelpMenu {
         hook.sendMessage(new MessageBuilder().setEmbed(eb.build()).build()).queue();
     }
 
+    @Override
+    public void executeHelpMenu(Member member, ButtonClickEvent e) {
+        EmbedBuilder eb = new EmbedBuilder();
+        eb.setAuthor("TestPlugin Help Menu");
+        eb.addField("Commands to Test PabloBot's Functionality", "/testerror - Test the ErrorManager\n" + "/testconfig - Test the Configuration", true);
+        eb.setFooter("Custom Help Menu Test");
+        e.editMessageEmbeds(eb.build()).queue();
+    }
 }
