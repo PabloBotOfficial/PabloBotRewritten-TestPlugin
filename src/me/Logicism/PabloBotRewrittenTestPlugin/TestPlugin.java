@@ -7,6 +7,10 @@ import me.Logicism.PabloBotRewritten.api.configuration.FileConfiguration;
 import me.Logicism.PabloBotRewritten.api.plugin.Plugin;
 import me.Logicism.PabloBotRewrittenTestPlugin.commands.*;
 import me.Logicism.PabloBotRewrittenTestPlugin.events.ButtonEvent;
+import net.dv8tion.jda.api.interactions.commands.OptionType;
+import net.dv8tion.jda.api.interactions.commands.build.OptionData;
+
+import java.util.List;
 
 public class TestPlugin extends Plugin {
 
@@ -36,8 +40,8 @@ public class TestPlugin extends Plugin {
         PabloBotRewritten.getInstance().getCommandManager().registerConsoleCommand(new ConsoleCommand("testconfig", "Test the plugin config", plugin), new TestConfigCommand());
 
         PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testbutton", "Test out the buttons", null, plugin), new TestButtonCommand());
-        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testslash", "Test out slash commands", null, plugin), new TestSlashCommand());
-        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testephemeral", "Test out Ephemeral Messages", null, plugin), new TestEphemeralCommand());
+        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testslash", "Test out slash commands", List.of(new OptionData(OptionType.STRING, "required", "The required subcommand").setRequired(true), new OptionData(OptionType.STRING, "optional", "The optional subcommand")), plugin), new TestSlashCommand());
+        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testephemeral", "Test out Ephemeral Messages", null, true, plugin), new TestEphemeralCommand());
 
         PabloBotRewritten.getInstance().getJDA().addEventListener(new ButtonEvent());
     }
