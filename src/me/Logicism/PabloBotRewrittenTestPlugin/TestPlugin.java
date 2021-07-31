@@ -6,7 +6,7 @@ import me.Logicism.PabloBotRewritten.api.command.DiscordCommand;
 import me.Logicism.PabloBotRewritten.api.configuration.FileConfiguration;
 import me.Logicism.PabloBotRewritten.api.plugin.Plugin;
 import me.Logicism.PabloBotRewrittenTestPlugin.commands.*;
-import me.Logicism.PabloBotRewrittenTestPlugin.events.ButtonEvent;
+import me.Logicism.PabloBotRewrittenTestPlugin.events.InteractionsEvents;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 
@@ -43,7 +43,10 @@ public class TestPlugin extends Plugin {
         PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testslash", "Test out slash commands", List.of(new OptionData(OptionType.STRING, "required", "The required subcommand").setRequired(true), new OptionData(OptionType.STRING, "optional", "The optional subcommand")), plugin), new TestSlashCommand());
         PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testephemeral", "Test out Ephemeral Messages", null, true, plugin), new TestEphemeralCommand());
 
-        PabloBotRewritten.getInstance().getJDA().addEventListener(new ButtonEvent());
+        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testselectionmenu", "Test out the selection menu", null, plugin), new TestSelectionMenuCommand());
+        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testmultiselectionmenu", "Test out the selection menu", null, plugin), new TestMultiSelectionMenuCommand());
+
+        PabloBotRewritten.getInstance().getJDA().addEventListener(new InteractionsEvents());
     }
 
     @Override
