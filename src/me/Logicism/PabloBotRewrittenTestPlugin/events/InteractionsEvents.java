@@ -28,8 +28,8 @@ public class InteractionsEvents extends ListenerAdapter {
 
     @Override
     public void onSelectionMenu(@NotNull SelectionMenuEvent event) {
-        SelectionMenu.Builder sm = SelectionMenu.fromData(event.getSelectionMenu().toData()).setDefaultValues(event.getValues());
         if (event.getComponentId().equals("testplugin_selectionmenu")) {
+            SelectionMenu.Builder sm = SelectionMenu.fromData(event.getSelectionMenu().toData()).setDefaultValues(event.getValues());
             SelectOption option = event.getSelectedOptions().get(0);
 
             if (option.getValue().equals("testselection1")) {
@@ -40,6 +40,7 @@ public class InteractionsEvents extends ListenerAdapter {
                 event.editMessage("You clicked on the third selection!").setActionRow(sm.build()).queue();
             }
         } else if (event.getComponentId().equals("testplugin_multiselectionmenu")) {
+            SelectionMenu.Builder sm = SelectionMenu.fromData(event.getSelectionMenu().toData()).setDefaultValues(event.getValues());
             List<String> selectedOptions = new ArrayList<>();
             for (SelectOption option : event.getSelectedOptions()) {
                 selectedOptions.add(option.getLabel());
