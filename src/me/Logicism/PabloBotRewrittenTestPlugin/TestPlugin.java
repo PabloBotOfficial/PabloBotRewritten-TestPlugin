@@ -43,8 +43,8 @@ public class TestPlugin extends Plugin {
         PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testslash", "Test out slash commands", List.of(new OptionData(OptionType.STRING, "required", "The required subcommand").setRequired(true), new OptionData(OptionType.STRING, "optional", "The optional subcommand")), plugin), new TestSlashCommand());
         PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testephemeral", "Test out Ephemeral Messages", null, true, plugin), new TestEphemeralCommand());
 
-        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testselectionmenu", "Test out the selection menu", null, plugin), new TestSelectionMenuCommand());
-        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testmultiselectionmenu", "Test out the selection menu", null, plugin), new TestMultiSelectionMenuCommand());
+        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testselectionmenu", "Test out the selection menu", null, plugin, "testselectmenu"), new TestSelectionMenuCommand());
+        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testmultiselectionmenu", "Test out the selection menu", null, plugin, "testmultiselectmenu"), new TestMultiSelectionMenuCommand());
 
         PabloBotRewritten.getInstance().getJDA().addEventListener(new InteractionsEvents());
     }
