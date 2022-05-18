@@ -1,10 +1,10 @@
 package me.Logicism.PabloBotRewrittenTestPlugin.events;
 
-import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
-import net.dv8tion.jda.api.events.interaction.SelectionMenuEvent;
+import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.component.SelectMenuInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.interactions.components.selections.SelectMenu;
 import net.dv8tion.jda.api.interactions.components.selections.SelectOption;
-import net.dv8tion.jda.api.interactions.components.selections.SelectionMenu;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 
@@ -14,7 +14,7 @@ import java.util.List;
 public class InteractionsEvents extends ListenerAdapter {
 
     @Override
-    public void onButtonClick(@NotNull ButtonClickEvent event) {
+    public void onButtonInteraction(@NotNull ButtonInteractionEvent event) {
         if (event.getComponentId().equals("testplugin_button1")) {
             event.reply("You clicked on a primary button!").queue();
         } else if (event.getComponentId().equals("testplugin_button2")) {
@@ -27,9 +27,9 @@ public class InteractionsEvents extends ListenerAdapter {
     }
 
     @Override
-    public void onSelectionMenu(@NotNull SelectionMenuEvent event) {
+    public void onSelectMenuInteraction(@NotNull SelectMenuInteractionEvent event) {
         if (event.getComponentId().equals("testplugin_selectionmenu")) {
-            SelectionMenu.Builder sm = SelectionMenu.fromData(event.getSelectionMenu().toData()).setDefaultValues(event.getValues());
+            SelectMenu.Builder sm = SelectMenu.fromData(event.getSelectMenu().toData()).setDefaultValues(event.getValues());
             SelectOption option = event.getSelectedOptions().get(0);
 
             if (option.getValue().equals("testselection1")) {
@@ -40,7 +40,7 @@ public class InteractionsEvents extends ListenerAdapter {
                 event.editMessage("You clicked on the third selection!").setActionRow(sm.build()).queue();
             }
         } else if (event.getComponentId().equals("testplugin_multiselectionmenu")) {
-            SelectionMenu.Builder sm = SelectionMenu.fromData(event.getSelectionMenu().toData()).setDefaultValues(event.getValues());
+            SelectMenu.Builder sm = SelectMenu.fromData(event.getSelectMenu().toData()).setDefaultValues(event.getValues());
             List<String> selectedOptions = new ArrayList<>();
             for (SelectOption option : event.getSelectedOptions()) {
                 selectedOptions.add(option.getLabel());
