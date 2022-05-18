@@ -4,8 +4,12 @@ import me.Logicism.PabloBotRewritten.PabloBotRewritten;
 import me.Logicism.PabloBotRewritten.api.command.ConsoleCommand;
 import me.Logicism.PabloBotRewritten.api.command.DiscordCommand;
 import me.Logicism.PabloBotRewritten.api.configuration.FileConfiguration;
+import me.Logicism.PabloBotRewritten.api.context.MessageContextItem;
+import me.Logicism.PabloBotRewritten.api.context.UserContextItem;
 import me.Logicism.PabloBotRewritten.api.plugin.Plugin;
 import me.Logicism.PabloBotRewrittenTestPlugin.commands.*;
+import me.Logicism.PabloBotRewrittenTestPlugin.context.TestMessageContextItem;
+import me.Logicism.PabloBotRewrittenTestPlugin.context.TestUserContextItem;
 import me.Logicism.PabloBotRewrittenTestPlugin.events.InteractionsEvents;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
@@ -47,6 +51,10 @@ public class TestPlugin extends Plugin {
         PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testmultiselectionmenu", "Test out the selection menu", null, plugin, "testmultiselectmenu"), new TestMultiSelectMenuCommand());
 
         PabloBotRewritten.getInstance().getJDA().addEventListener(new InteractionsEvents());
+
+        PabloBotRewritten.getInstance().getContextItemManager().registerMessageContextItem(new MessageContextItem("Test Message" , null), new TestMessageContextItem());
+
+        PabloBotRewritten.getInstance().getContextItemManager().registerUserContextItem(new UserContextItem("Test User" , null), new TestUserContextItem());
     }
 
     @Override
