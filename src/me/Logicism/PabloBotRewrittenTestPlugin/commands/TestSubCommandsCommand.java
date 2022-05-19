@@ -9,19 +9,21 @@ import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 
 import java.util.List;
 
-public class TestSlashCommand implements DiscordCommandExecutor {
+public class TestSubCommandsCommand implements DiscordCommandExecutor {
     @Override
     public boolean onCommand(Member member, User user, MessageChannel channel, String s, String[] strings) {
-        channel.sendMessage("You can try out slash commands, use /testslash").queue();
+        channel.sendMessage("You can try out slash commands subcommands, use /testsubcommands").queue();
         return false;
     }
 
     @Override
     public boolean onCommand(Member member, User user, InteractionHook hook, String subcmd, String s, List<OptionMapping> list) {
-        if (list.size() == 1) {
-            hook.sendMessage("Sent Arguments - required: " + list.get(0).getAsString()).queue();
-        } else if (list.size() == 2) {
-            hook.sendMessage("Sent Arguments - required: " + list.get(0).getAsString() + " optional: " + list.get(1).getAsString()).queue();
+        if (subcmd.equals("subcmd")) {
+            hook.sendMessage("This is the first subcommand!").queue();
+        } else if (subcmd.equals("subcmd1")) {
+            hook.sendMessage("This is the second subcommand!").queue();
+        } else if (subcmd.equals("subcmd2")) {
+            hook.sendMessage("This is the third subcommand with the option:" + list.get(0).getAsString() + " !").queue();
         }
         return false;
     }

@@ -3,6 +3,7 @@ package me.Logicism.PabloBotRewrittenTestPlugin;
 import me.Logicism.PabloBotRewritten.PabloBotRewritten;
 import me.Logicism.PabloBotRewritten.api.command.ConsoleCommand;
 import me.Logicism.PabloBotRewritten.api.command.DiscordCommand;
+import me.Logicism.PabloBotRewritten.api.command.DiscordSubCommand;
 import me.Logicism.PabloBotRewritten.api.configuration.FileConfiguration;
 import me.Logicism.PabloBotRewritten.api.context.MessageContextItem;
 import me.Logicism.PabloBotRewritten.api.context.UserContextItem;
@@ -37,24 +38,25 @@ public class TestPlugin extends Plugin {
 
         setHelpMenu(new TestPluginHelpMenu());
 
-        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testerror", "Test the ErrorManager", null, plugin), new TestErrorCommand());
+        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testerror", "Test the ErrorManager", null, null, plugin), new TestErrorCommand());
         PabloBotRewritten.getInstance().getCommandManager().registerConsoleCommand(new ConsoleCommand("testerror", "Test the ErrorManager", plugin), new TestErrorCommand());
 
-        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testconfig", "Test the plugin config", null, plugin), new TestConfigCommand());
+        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testconfig", "Test the plugin config", null, null, plugin), new TestConfigCommand());
         PabloBotRewritten.getInstance().getCommandManager().registerConsoleCommand(new ConsoleCommand("testconfig", "Test the plugin config", plugin), new TestConfigCommand());
 
-        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testbutton", "Test out the buttons", null, plugin), new TestButtonCommand());
-        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testslash", "Test out slash commands", List.of(new OptionData(OptionType.STRING, "required", "The required subcommand").setRequired(true), new OptionData(OptionType.STRING, "optional", "The optional subcommand")), plugin), new TestSlashCommand());
-        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testephemeral", "Test out Ephemeral Messages", null, true, plugin), new TestEphemeralCommand());
+        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testbutton", "Test out the buttons", null, null, plugin), new TestButtonCommand());
+        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testslash", "Test out slash commands", List.of(new OptionData(OptionType.STRING, "required", "The required option").setRequired(true), new OptionData(OptionType.STRING, "optional", "The optional option")), null, plugin), new TestSlashCommand());
+        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testephemeral", "Test out Ephemeral Messages", null, null, true, plugin), new TestEphemeralCommand());
+        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testsubcommands", "Test out SubCommands", null, List.of(new DiscordSubCommand("subcmd", "", null)), null, plugin), new TestSubCommandsCommand());
 
-        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testselectionmenu", "Test out the selection menu", null, plugin, "testselectmenu"), new TestSelectMenuCommand());
-        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testmultiselectionmenu", "Test out the selection menu", null, plugin, "testmultiselectmenu"), new TestMultiSelectMenuCommand());
+        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testselectionmenu", "Test out the selection menu", null, null, plugin, "testselectmenu"), new TestSelectMenuCommand());
+        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testmultiselectionmenu", "Test out the selection menu", null, null, plugin, "testmultiselectmenu"), new TestMultiSelectMenuCommand());
 
         PabloBotRewritten.getInstance().getJDA().addEventListener(new InteractionsEvents());
 
-        PabloBotRewritten.getInstance().getContextItemManager().registerMessageContextItem(new MessageContextItem("Test Message" , null), new TestMessageContextItem());
+        PabloBotRewritten.getInstance().getContextItemManager().registerMessageContextItem(new MessageContextItem("Test Message" , null, plugin), new TestMessageContextItem());
 
-        PabloBotRewritten.getInstance().getContextItemManager().registerUserContextItem(new UserContextItem("Test User" , null), new TestUserContextItem());
+        PabloBotRewritten.getInstance().getContextItemManager().registerUserContextItem(new UserContextItem("Test User" , null, plugin), new TestUserContextItem());
     }
 
     @Override

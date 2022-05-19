@@ -29,7 +29,7 @@ public class TestConfigCommand implements ConsoleCommandExecutor, DiscordCommand
     }
 
     @Override
-    public boolean onCommand(Member member, User user, InteractionHook hook, String s, List<OptionMapping> list) {
+    public boolean onCommand(Member member, User user, InteractionHook hook, String subcmd, String s, List<OptionMapping> list) {
         hook.sendMessage(TestPlugin.config.getString("test1")).queue();
         return false;
     }

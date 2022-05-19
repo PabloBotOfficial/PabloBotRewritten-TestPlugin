@@ -21,7 +21,7 @@ public class TestErrorCommand implements DiscordCommandExecutor, ConsoleCommandE
     }
 
     @Override
-    public boolean onCommand(Member member, User user, InteractionHook hook, String s, List<OptionMapping> list) {
+    public boolean onCommand(Member member, User user, InteractionHook hook, String subcmd, String s, List<OptionMapping> list) {
         // Throws NullPointerException
         System.out.println(PabloBotRewritten.getInstance().getJDA().getGuildById(999).getName());
         return false;

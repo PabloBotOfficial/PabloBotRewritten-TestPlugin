@@ -18,7 +18,7 @@ public class TestEphemeralCommand implements DiscordCommandExecutor {
     }
 
     @Override
-    public boolean onCommand(Member member, User user, InteractionHook hook, String s, List<OptionMapping> list) {
+    public boolean onCommand(Member member, User user, InteractionHook hook, String subcmd, String s, List<OptionMapping> list) {
         hook.setEphemeral(true).sendMessage("This is an Ephemeral Message! Only you can see this!").queue();
         return false;
     }
