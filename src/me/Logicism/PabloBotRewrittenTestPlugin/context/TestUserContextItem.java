@@ -1,6 +1,6 @@
 package me.Logicism.PabloBotRewrittenTestPlugin.context;
 
-import me.Logicism.PabloBotRewritten.api.context.UserContextAction;
+import me.Logicism.PabloBotRewritten.api.command.UserContextAction;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.interactions.InteractionHook;

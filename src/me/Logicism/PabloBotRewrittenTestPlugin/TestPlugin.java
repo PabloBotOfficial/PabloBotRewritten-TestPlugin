@@ -1,12 +1,8 @@
 package me.Logicism.PabloBotRewrittenTestPlugin;
 
 import me.Logicism.PabloBotRewritten.PabloBotRewritten;
-import me.Logicism.PabloBotRewritten.api.command.ConsoleCommand;
-import me.Logicism.PabloBotRewritten.api.command.DiscordCommand;
-import me.Logicism.PabloBotRewritten.api.command.DiscordSubCommand;
+import me.Logicism.PabloBotRewritten.api.command.*;
 import me.Logicism.PabloBotRewritten.api.configuration.FileConfiguration;
-import me.Logicism.PabloBotRewritten.api.context.MessageContextItem;
-import me.Logicism.PabloBotRewritten.api.context.UserContextItem;
 import me.Logicism.PabloBotRewritten.api.plugin.Plugin;
 import me.Logicism.PabloBotRewrittenTestPlugin.commands.*;
 import me.Logicism.PabloBotRewrittenTestPlugin.context.TestMessageContextItem;
@@ -52,11 +48,11 @@ public class TestPlugin extends Plugin {
         PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testselectionmenu", "Test out the selection menu", null, null, plugin, "testselectmenu"), new TestSelectMenuCommand());
         PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testmultiselectionmenu", "Test out the selection menu", null, null, plugin, "testmultiselectmenu"), new TestMultiSelectMenuCommand());
 
+        PabloBotRewritten.getInstance().getCommandManager().registerMessageContextItem(new MessageContextItem("Test Message" , null, plugin), new TestMessageContextItem());
+
+        PabloBotRewritten.getInstance().getCommandManager().registerUserContextItem(new UserContextItem("Test User" , null, plugin), new TestUserContextItem());
+
         PabloBotRewritten.getInstance().getJDA().addEventListener(new InteractionsEvents());
-
-        PabloBotRewritten.getInstance().getContextItemManager().registerMessageContextItem(new MessageContextItem("Test Message" , null, plugin), new TestMessageContextItem());
-
-        PabloBotRewritten.getInstance().getContextItemManager().registerUserContextItem(new UserContextItem("Test User" , null, plugin), new TestUserContextItem());
     }
 
     @Override
