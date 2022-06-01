@@ -1,5 +1,5 @@
 name: TestPlugin
-description: A plugin to test all functionality of PabloBot Rewritten
+description: A plugin to test all functionality of Pablo!
 version: 1.4
 apiVersion: 1.5
 main: me.Logicism.PabloBotRewrittenTestPlugin.TestPlugin

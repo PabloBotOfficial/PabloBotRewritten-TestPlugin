@@ -15,7 +15,7 @@ public class TestPluginHelpMenu extends PluginHelpMenu {
     public void executeHelpMenu(Member member, MessageChannel channel) {
         EmbedBuilder eb = new EmbedBuilder();
         eb.setAuthor("TestPlugin Help Menu");
-        eb.addField("Commands to Test PabloBot's Functionality", GuildUtils.getGuildPrefix(((TextChannel) channel).getGuild().getId()) + "testerror - Test the ErrorManager\n" + GuildUtils.getGuildPrefix(((TextChannel) channel).getGuild().getId()) + "testconfig - Test the Configuration", true);
+        eb.addField("Commands to Test Pablo!'s Functionality", GuildUtils.getGuildPrefix(((TextChannel) channel).getGuild().getId()) + "testerror - Test the ErrorManager\n" + GuildUtils.getGuildPrefix(((TextChannel) channel).getGuild().getId()) + "testconfig - Test the Configuration", true);
         eb.setFooter("Custom Help Menu Test");
         channel.sendMessageEmbeds(eb.build()).queue();
     }
@@ -24,7 +24,7 @@ public class TestPluginHelpMenu extends PluginHelpMenu {
     public void executeHelpMenu(Member member, InteractionHook hook) {
         EmbedBuilder eb = new EmbedBuilder();
         eb.setAuthor("TestPlugin Help Menu");
-        eb.addField("Commands to Test PabloBot's Functionality", "/testerror - Test the ErrorManager\n" + "/testconfig - Test the Configuration", true);
+        eb.addField("Commands to Test Pablo!'s Functionality", "/testerror - Test the ErrorManager\n" + "/testconfig - Test the Configuration", true);
         eb.setFooter("Custom Help Menu Test");
         hook.sendMessageEmbeds(eb.build()).queue();
     }
@@ -33,7 +33,7 @@ public class TestPluginHelpMenu extends PluginHelpMenu {
     public void executeHelpMenu(Member member, SelectMenuInteractionEvent e) {
         EmbedBuilder eb = new EmbedBuilder();
         eb.setAuthor("TestPlugin Help Menu");
-        eb.addField("Commands to Test PabloBot's Functionality", "/testerror - Test the ErrorManager\n" + "/testconfig - Test the Configuration", true);
+        eb.addField("Commands to Test Pablo!'s Functionality", "/testerror - Test the ErrorManager\n" + "/testconfig - Test the Configuration", true);
         eb.setFooter("Custom Help Menu Test");
         e.editMessageEmbeds(eb.build()).queue();
     }
