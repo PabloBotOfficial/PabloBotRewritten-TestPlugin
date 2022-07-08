@@ -4,4 +4,4 @@ version: 1.4
 apiVersion: 1.6
 main: me.Logicism.PabloBotRewrittenTestPlugin.TestPlugin
 author: Logicism
-website: TestWebsite
+website: https://logicism.tv/
