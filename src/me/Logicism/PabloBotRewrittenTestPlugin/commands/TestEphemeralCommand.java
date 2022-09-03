@@ -10,10 +10,11 @@ import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 import java.util.List;
 
 public class TestEphemeralCommand implements DiscordCommandExecutor {
-
+    //Deprecated
+    @Deprecated
     @Override
     public boolean onCommand(Member member, User user, MessageChannel channel, String s, String[] args) {
-        channel.sendMessage("Try out Ephemeral Messages with /testephemeral").queue();
+        channel.sendMessage("Prefix Commands are now Deprecated! Try out Ephemeral Messages with /testephemeral").queue();
         return false;
     }
 

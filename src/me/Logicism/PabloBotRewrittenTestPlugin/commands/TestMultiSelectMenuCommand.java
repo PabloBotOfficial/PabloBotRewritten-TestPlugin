@@ -11,15 +11,11 @@ import net.dv8tion.jda.api.interactions.components.selections.SelectMenu;
 import java.util.List;
 
 public class TestMultiSelectMenuCommand implements DiscordCommandExecutor {
+    //Deprecated
+    @Deprecated
     @Override
     public boolean onCommand(Member member, User user, MessageChannel channel, String s, String[] args) {
-        SelectMenu.Builder builder = SelectMenu.create("testplugin_multiselectionmenu");
-        builder.setPlaceholder("Click on the menu to test the selection menu");
-        builder.addOption("Test Selection 1", "testselection1");
-        builder.addOption("Test Selection 2", "testselection2");
-        builder.addOption("Test Selection 3", "testselection3");
-        builder.setRequiredRange(1, 3);
-        channel.sendMessage("Click on the menu to test the selection menu").setActionRow(builder.build()).queue();
+        channel.sendMessage("Prefix Commands are now Deprecated! Please use /testmultiselectmenu").queue();
         return false;
     }
 

@@ -11,15 +11,11 @@ import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import java.util.List;
 
 public class TestButtonCommand implements DiscordCommandExecutor {
-
+    //Deprecated
+    @Deprecated
     @Override
     public boolean onCommand(Member member, User user, MessageChannel channel, String s, String[] args) {
-        channel.sendMessage("Click the buttons below to test out the functionality!")
-                .setActionRow(Button.primary("testplugin_button1", "Click Me!"),
-                        Button.secondary("testplugin_button2", "Click Me!"),
-                        Button.danger("testplugin_button3", "Click Me!"),
-                        Button.success("testplugin_button4", "Click Me!"),
-                        Button.link("https://discord.com/", "Click Me!")).queue();
+        channel.sendMessage("Prefix Commands are now Deprecated! Please use /testbutton").queue();
         return false;
     }
 

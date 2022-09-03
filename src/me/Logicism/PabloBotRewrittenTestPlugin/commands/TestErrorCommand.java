@@ -13,10 +13,11 @@ import org.jline.terminal.Terminal;
 import java.util.List;
 
 public class TestErrorCommand implements DiscordCommandExecutor, ConsoleCommandExecutor {
+    //Deprecated
+    @Deprecated
     @Override
     public boolean onCommand(Member member, User user, MessageChannel channel, String s, String[] args) {
-        // Throws NullPointerException
-        System.out.println(PabloBotRewritten.getInstance().getJDA().getGuildById(999).getName());
+        channel.sendMessage("Prefix Commands are now Deprecated! Please use /testerror").queue();
         return false;
     }
 

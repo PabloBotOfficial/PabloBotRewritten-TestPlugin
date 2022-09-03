@@ -10,7 +10,7 @@ public class TestMessageContextItem implements MessageContextAction {
 
     @Override
     public void execute(Message message, Member member, User user, InteractionHook hook, String s) {
-        hook.sendMessage("The messaged you executed this action to is `" + message.getContentRaw() + "` and you are " + user.getAsTag()).queue();
+        hook.sendMessage("The message you executed this action to is `" + message.getContentRaw() + "` and you are " + user.getAsTag()).queue();
     }
 
 }

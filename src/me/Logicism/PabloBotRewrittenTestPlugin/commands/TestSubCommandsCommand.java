@@ -10,9 +10,11 @@ import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 import java.util.List;
 
 public class TestSubCommandsCommand implements DiscordCommandExecutor {
+    //Deprecated
+    @Deprecated
     @Override
     public boolean onCommand(Member member, User user, MessageChannel channel, String s, String[] strings) {
-        channel.sendMessage("You can try out slash commands subcommands, use /testsubcommands").queue();
+        channel.sendMessage("Prefix Commands are now Deprecated! You can try out slash commands subcommands, use /testsubcommands").queue();
         return false;
     }
 

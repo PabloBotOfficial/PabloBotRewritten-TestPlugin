@@ -22,9 +22,11 @@ public class TestConfigCommand implements ConsoleCommandExecutor, DiscordCommand
         return false;
     }
 
+    //Deprecated
+    @Deprecated
     @Override
     public boolean onCommand(Member member, User user, MessageChannel channel, String s, String[] args) {
-        channel.sendMessage(TestPlugin.config.getString("test1")).queue();
+        channel.sendMessage("Prefix Commands are now Deprecated! Please use /testconfig").queue();
         return false;
     }
 
