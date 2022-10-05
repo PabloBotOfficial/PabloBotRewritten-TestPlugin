@@ -4,7 +4,6 @@ import me.Logicism.PabloBotRewritten.api.command.ConsoleCommandExecutor;
 import me.Logicism.PabloBotRewritten.api.command.DiscordCommandExecutor;
 import me.Logicism.PabloBotRewrittenTestPlugin.TestPlugin;
 import net.dv8tion.jda.api.entities.Member;
-import net.dv8tion.jda.api.entities.MessageChannel;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.interactions.InteractionHook;
 import net.dv8tion.jda.api.interactions.commands.OptionMapping;
@@ -19,14 +18,6 @@ public class TestConfigCommand implements ConsoleCommandExecutor, DiscordCommand
         for (String s1 : TestPlugin.config.getKeys()) {
             TestPlugin.plugin.getLogger().info(s1);
         }
-        return false;
-    }
-
-    //Deprecated
-    @Deprecated
-    @Override
-    public boolean onCommand(Member member, User user, MessageChannel channel, String s, String[] args) {
-        channel.sendMessage("Prefix Commands are now Deprecated! Please use /testconfig").queue();
         return false;
     }
 
