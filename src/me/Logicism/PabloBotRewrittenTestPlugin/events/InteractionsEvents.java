@@ -1,7 +1,7 @@
 package me.Logicism.PabloBotRewrittenTestPlugin.events;
 
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
-import net.dv8tion.jda.api.events.interaction.component.SelectMenuInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.component.StringSelectInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.components.selections.SelectMenu;
 import net.dv8tion.jda.api.interactions.components.selections.SelectOption;
@@ -27,9 +27,9 @@ public class InteractionsEvents extends ListenerAdapter {
     }
 
     @Override
-    public void onSelectMenuInteraction(@NotNull SelectMenuInteractionEvent event) {
+    public void onStringSelectInteraction(@NotNull StringSelectInteractionEvent event) {
         if (event.getComponentId().equals("testplugin_selectionmenu")) {
-            SelectMenu.Builder sm = SelectMenu.fromData(event.getSelectMenu().toData()).setDefaultValues(event.getValues());
+            SelectMenu.Builder sm = event.getSelectMenu().createCopy().setDefaultValues(event.getValues());
             SelectOption option = event.getSelectedOptions().get(0);
 
             if (option.getValue().equals("testselection1")) {
@@ -40,7 +40,7 @@ public class InteractionsEvents extends ListenerAdapter {
                 event.editMessage("You clicked on the third selection!").setActionRow(sm.build()).queue();
             }
         } else if (event.getComponentId().equals("testplugin_multiselectionmenu")) {
-            SelectMenu.Builder sm = SelectMenu.fromData(event.getSelectMenu().toData()).setDefaultValues(event.getValues());
+            SelectMenu.Builder sm = event.getSelectMenu().createCopy().setDefaultValues(event.getValues());
             List<String> selectedOptions = new ArrayList<>();
             for (SelectOption option : event.getSelectedOptions()) {
                 selectedOptions.add(option.getLabel());

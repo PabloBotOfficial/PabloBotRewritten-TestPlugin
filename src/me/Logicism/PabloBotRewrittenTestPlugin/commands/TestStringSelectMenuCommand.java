@@ -5,14 +5,14 @@ import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.interactions.InteractionHook;
 import net.dv8tion.jda.api.interactions.commands.OptionMapping;
-import net.dv8tion.jda.api.interactions.components.selections.SelectMenu;
+import net.dv8tion.jda.api.interactions.components.selections.StringSelectMenu;
 
 import java.util.List;
 
-public class TestSelectMenuCommand implements DiscordCommandExecutor {
+public class TestStringSelectMenuCommand implements DiscordCommandExecutor {
     @Override
     public boolean onCommand(Member member, User user, InteractionHook hook, String subcmd, String s, List<OptionMapping> args) {
-        SelectMenu.Builder builder = SelectMenu.create("testplugin_selectionmenu");
+        StringSelectMenu.Builder builder = StringSelectMenu.create("testplugin_selectionmenu");
         builder.setPlaceholder("Click on the menu to test the selection menu");
         builder.addOption("Test Selection 1", "testselection1");
         builder.addOption("Test Selection 2", "testselection2");
