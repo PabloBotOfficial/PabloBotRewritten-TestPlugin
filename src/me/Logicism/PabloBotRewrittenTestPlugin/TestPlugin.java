@@ -45,7 +45,8 @@ public class TestPlugin extends Plugin {
         PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testephemeral", "Test out Ephemeral Messages", null, null, true, plugin), new TestEphemeralCommand());
         PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testsubcommands", "Test out SubCommands", null, List.of(new DiscordSubCommand("subcmd", "The first subcommand", null), new DiscordSubCommand("subcmd1", "The second subcommand", null), new DiscordSubCommand("subcmd2", "The third subcommand with an option", List.of(new OptionData(OptionType.STRING, "required", "The required option", true)))), null, plugin), new TestSubCommandsCommand());
 
-        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testselectionmenu", "Test out the selection menu", null, null, plugin, "testselectmenu"), new TestStringSelectMenuCommand());
+        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("teststringselectmenu", "Test out the selection menu", null, null, plugin, "testselectmenu"), new TestStringSelectMenuCommand());
+        PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testentityselectmenu", "Test out the selection menu", null, null, plugin, "testselectmenu"), new TestEntitySelectMenuCommand());
         PabloBotRewritten.getInstance().getCommandManager().registerDiscordCommand(new DiscordCommand("testmultiselectionmenu", "Test out the selection menu", null, null, plugin, "testmultiselectmenu"), new TestMultiSelectMenuCommand());
 
         PabloBotRewritten.getInstance().getCommandManager().registerMessageContextItem(new MessageContextItem("Test Message" , null, plugin), new TestMessageContextItem());
